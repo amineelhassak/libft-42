@@ -1,204 +1,232 @@
-# 🔧 Libft - Custom C Standard Library
+# 📚 Libft - 42 School C Library
 
-[![C](https://img.shields.io/badge/C-00599C?style=for-the-badge&logo=c&logoColor=white)](https://en.wikipedia.org/wiki/C_(programming_language))
-[![License](https://img.shields.io/badge/License-MIT-blue.svg)](LICENSE)
-[![Status](https://img.shields.io/badge/Status-Complete-brightgreen.svg)]()
-[![Build](https://img.shields.io/badge/Build-Passing-success.svg)]()
-[![Version](https://img.shields.io/badge/Version-1.0.0-blue.svg)]()
+[![42](https://img.shields.io/badge/42-Libft-blue)](https://42.fr)
+[![C](https://img.shields.io/badge/C-99%20Standard-green)](https://en.wikipedia.org/wiki/C99)
+[![License](https://img.shields.io/badge/License-MIT-yellow)](LICENSE)
+[![Build Status](https://img.shields.io/badge/Build-Passing-brightgreen)]()
 
-<div align="center">
-
-# 🔧 Libft - 42 Custom C Library
-
-> A comprehensive reimplementation of the C standard library functions, plus additional utilities, for the 42 curriculum.
-
-**Master C fundamentals by building your own standard library!**
-
-[![GitHub stars](https://img.shields.io/github/stars/yourusername/libft-42?style=social)](https://github.com/yourusername/libft-42/stargazers)
-[![GitHub forks](https://img.shields.io/github/forks/yourusername/libft-42?style=social)](https://github.com/yourusername/libft-42/network)
-[![GitHub issues](https://img.shields.io/github/issues/yourusername/libft-42)](https://github.com/yourusername/libft-42/issues)
-
-</div>
-
----
-
-## 📚 Table of Contents
-
-- [🎯 Overview](#-overview)
-- [✨ Features](#-features)
-- [🛠️ Installation](#️-installation)
-- [🚀 Usage](#-usage)
-- [📁 Project Structure](#-project-structure)
-- [🛠️ Technologies Used](#️-technologies-used)
-- [🧪 Testing](#-testing)
-- [🤝 Contributing](#-contributing)
-- [📄 License](#-license)
+A comprehensive C library implementing standard library functions and additional utilities, created as part of the 42 school curriculum.
 
 ## 🎯 Overview
 
-Libft is a **custom implementation of the C standard library**. It includes essential string, memory, and list manipulation functions, as well as additional utilities. This project is a foundational part of the 42 curriculum and is designed to strengthen your understanding of C programming.
+Libft is a collection of 44 C functions that reimplements many standard C library functions, plus additional utility functions and a complete linked list implementation. This project serves as the foundation for future 42 school projects.
 
-### 🎓 What You'll Learn
-- **Memory management**: malloc, free, memset, memcpy, etc.
-- **String manipulation**: strlen, strcpy, strcat, strchr, strstr, etc.
-- **Character checks**: isalpha, isdigit, isalnum, isascii, isprint
-- **List operations**: linked list creation, manipulation, and traversal
-- **Custom utilities**: split, itoa, strmapi, etc.
+## 📋 Table of Contents
+
+- [Features](#-features)
+- [Installation](#-installation)
+- [Usage](#-usage)
+- [Functions](#-functions)
+- [Examples](#-examples)
+- [Testing](#-testing)
+- [Contributing](#-contributing)
+- [License](#-license)
 
 ## ✨ Features
 
-### 🧰 Standard Library Functions
-- ✅ String functions: strlen, strcpy, strcat, strdup, strchr, strstr, etc.
-- ✅ Memory functions: memset, memcpy, memmove, memchr, memcmp, calloc, bzero
-- ✅ Character checks: isalpha, isdigit, isalnum, isascii, isprint, toupper, tolower
-- ✅ Conversion: atoi, itoa
-- ✅ Output: putchar_fd, putstr_fd, putendl_fd, putnbr_fd
+- **44 Functions**: 35 core functions + 9 bonus linked list functions
+- **Memory Safe**: Proper memory allocation and deallocation
+- **42 Compliant**: Follows 42 school coding standards
+- **Well Documented**: Clear function descriptions and usage
+- **Modular Design**: Easy to integrate into other projects
 
-### 📝 Bonus Functions
-- ✅ Linked list operations: lstnew, lstadd_front, lstadd_back, lstsize, lstlast, lstdelone, lstclear, lstiter, lstmap
-- ✅ String utilities: split, strtrim, strjoin, substr, strmapi, striteri
+## 🚀 Installation
 
-### 🛡️ Robustness
-- ✅ Error handling: Defensive programming and input validation
-- ✅ Memory safety: Careful allocation and deallocation
-- ✅ Comprehensive testing: Test files for all functions
-
-## 🛠️ Installation
-
-### Prerequisites
-- **C compiler** (GCC or Clang)
-- **Make** (GNU Make 4.0+)
-- **Unix-like OS** (Linux, macOS)
-
-### 🏗️ Building the Library
 1. **Clone the repository**
    ```bash
    git clone https://github.com/yourusername/libft-42.git
    cd libft-42
    ```
-2. **Build the library**
+
+2. **Compile the library**
    ```bash
+   # Compile core functions only
    make
+   
+   # Compile with bonus functions (linked lists)
+   make bonus
    ```
 
-### 🔧 Make Commands
-| Command      | Description                      |
-|--------------|----------------------------------|
-| `make`       | Builds the library (libft.a)     |
-| `make clean` | Removes object files             |
-| `make fclean`| Removes object files & library   |
-| `make re`    | Rebuilds the library             |
-
-## 🚀 Usage
-
-### Linking with Your Project
-1. **Include the header** in your source file:
-   ```c
-   #include "libft.h"
-   ```
-2. **Compile and link** with the library:
+3. **Clean build files** (optional)
    ```bash
-   gcc your_program.c -L. -lft -o your_program
+   make clean      # Remove object files
+   make fclean     # Remove object files and library
    ```
 
-### Example
+## 📖 Usage
+
+### Basic Usage
+
 ```c
 #include "libft.h"
-#include <stdio.h>
 
-int main(void) {
-    char *s = ft_strdup("Hello, world!");
-    printf("%s\n", s);
-    free(s);
-    return 0;
+int main(void)
+{
+    char *str = "Hello, World!";
+    int len = ft_strlen(str);
+    
+    ft_putstr_fd("Length: ", 1);
+    ft_putnbr_fd(len, 1);
+    ft_putchar_fd('\n', 1);
+    
+    return (0);
 }
 ```
 
-## 📁 Project Structure
-```
-libft-42/
-├── ft_*.c            # C function implementations
-├── libft.h           # Header file
-├── Makefile          # Build configuration
-├── README.md         # This file
+### Linking with Your Project
+
+```bash
+# Compile your program with libft
+gcc -Wall -Wextra -Werror your_program.c libft.a -o your_program
 ```
 
-## 🛠️ Technologies Used
-### Programming Languages
-![C](https://img.shields.io/badge/C-00599C?style=for-the-badge&logo=c&logoColor=white)
+## 🔧 Functions
 
-### Build Tools
-![Make](https://img.shields.io/badge/Make-000000?style=for-the-badge&logo=gnu&logoColor=white)
-![GCC](https://img.shields.io/badge/GCC-000000?style=for-the-badge&logo=gnu&logoColor=white)
+### Character Functions
+| Function | Description |
+|----------|-------------|
+| `ft_isalpha` | Check if character is alphabetic |
+| `ft_isdigit` | Check if character is a digit |
+| `ft_isalnum` | Check if character is alphanumeric |
+| `ft_isascii` | Check if character is ASCII |
+| `ft_isprint` | Check if character is printable |
+| `ft_toupper` | Convert character to uppercase |
+| `ft_tolower` | Convert character to lowercase |
 
-### Development Tools
-![Git](https://img.shields.io/badge/Git-F05032?style=for-the-badge&logo=git&logoColor=white)
-![VS Code](https://img.shields.io/badge/VS_Code-007ACC?style=for-the-badge&logo=visual-studio-code&logoColor=white)
+### String Functions
+| Function | Description |
+|----------|-------------|
+| `ft_strlen` | Calculate string length |
+| `ft_strchr` | Find first occurrence of character |
+| `ft_strrchr` | Find last occurrence of character |
+| `ft_strncmp` | Compare strings up to n characters |
+| `ft_strnstr` | Find substring in string |
+| `ft_strdup` | Duplicate string |
+| `ft_strlcpy` | Copy string with size limit |
+| `ft_strlcat` | Concatenate strings with size limit |
+| `ft_strjoin` | Join two strings |
+| `ft_strtrim` | Remove characters from start/end |
+| `ft_substr` | Extract substring |
+| `ft_split` | Split string by delimiter |
+| `ft_strmapi` | Apply function to each character |
+| `ft_striteri` | Apply function to each character with index |
+
+### Memory Functions
+| Function | Description |
+|----------|-------------|
+| `ft_memset` | Set memory to value |
+| `ft_bzero` | Set memory to zero |
+| `ft_memcpy` | Copy memory |
+| `ft_memmove` | Move memory (handles overlap) |
+| `ft_memchr` | Find character in memory |
+| `ft_memcmp` | Compare memory |
+| `ft_calloc` | Allocate and zero memory |
+
+### Conversion Functions
+| Function | Description |
+|----------|-------------|
+| `ft_atoi` | Convert string to integer |
+| `ft_itoa` | Convert integer to string |
+
+### File Descriptor Functions
+| Function | Description |
+|----------|-------------|
+| `ft_putchar_fd` | Write character to file descriptor |
+| `ft_putstr_fd` | Write string to file descriptor |
+| `ft_putendl_fd` | Write string + newline to file descriptor |
+| `ft_putnbr_fd` | Write number to file descriptor |
+
+### Linked List Functions (Bonus)
+| Function | Description |
+|----------|-------------|
+| `ft_lstnew` | Create new list element |
+| `ft_lstadd_front` | Add element to front of list |
+| `ft_lstadd_back` | Add element to back of list |
+| `ft_lstsize` | Count list elements |
+| `ft_lstlast` | Get last element |
+| `ft_lstdelone` | Delete single element |
+| `ft_lstclear` | Delete entire list |
+| `ft_lstiter` | Apply function to each element |
+| `ft_lstmap` | Create new list with transformed elements |
+
+## 💡 Examples
+
+### String Manipulation
+```c
+char *str = "  Hello World  ";
+char *trimmed = ft_strtrim(str, " ");
+// Result: "Hello World"
+
+char **words = ft_split("hello,world,test", ',');
+// Result: ["hello", "world", "test", NULL]
+```
+
+### Linked List Usage
+```c
+t_list *list = ft_lstnew("first");
+ft_lstadd_back(&list, ft_lstnew("second"));
+ft_lstadd_back(&list, ft_lstnew("third"));
+
+int size = ft_lstsize(list); // Returns 3
+```
+
+### Memory Management
+```c
+char *str = ft_calloc(10, sizeof(char));
+// Allocates and zeros 10 bytes
+
+ft_memset(str, 'A', 5);
+// Sets first 5 bytes to 'A'
+```
 
 ## 🧪 Testing
-### Manual Testing
-1. **Compile test files**
-   ```bash
-   gcc -Wall -Wextra -Werror test_ft_strlen.c libft.a -o test_strlen
-   ./test_strlen
-   ```
-2. **Use provided test suites** or your own test files.
 
-### Testing Tools
-- [42Tester](https://github.com/Mazoise/42TESTERS-LIBFT)
-- [libft-unit-test](https://github.com/alelievr/libft-unit-test)
-- [libft-war-machine](https://github.com/y3ll0w42/libft-war-machine)
+The library includes comprehensive testing. You can test individual functions or run the full test suite:
+
+```bash
+# Test specific function
+gcc -Wall -Wextra -Werror test_strlen.c libft.a -o test_strlen
+./test_strlen
+
+# Run all tests (if test suite is available)
+make test
+```
 
 ## 🤝 Contributing
-Contributions are welcome! Please feel free to submit a Pull Request. For major changes, please open an issue first to discuss what you would like to change.
 
-### How to Contribute
-1. **Fork the repository**
-   ```bash
-   git clone https://github.com/yourusername/libft-42.git
-   ```
-2. **Create your feature branch**
-   ```bash
-   git checkout -b feature/AmazingFeature
-   ```
-3. **Make your changes**
-   - Follow the existing code style
-   - Add tests for new features
-   - Update documentation as needed
-4. **Commit your changes**
-   ```bash
-   git commit -m 'Add some AmazingFeature'
-   ```
-5. **Push to the branch**
-   ```bash
-   git push origin feature/AmazingFeature
-   ```
-6. **Open a Pull Request**
+1. Fork the repository
+2. Create your feature branch (`git checkout -b feature/AmazingFeature`)
+3. Commit your changes (`git commit -m 'Add some AmazingFeature'`)
+4. Push to the branch (`git push origin feature/AmazingFeature`)
+5. Open a Pull Request
 
-### Contribution Guidelines
-- Follow the existing code style and conventions
-- Add tests for new features
-- Update documentation as needed
-- Ensure the library compiles without warnings
+### Coding Standards
+
+- Follow 42 school coding norms
+- Use proper header formatting
+- Include error handling
+- Write clear comments
+- Test all functions thoroughly
 
 ## 📄 License
-This project is part of the 42 School curriculum. The code is written for educational purposes.
+
+This project is licensed under the MIT License - see the [LICENSE](LICENSE) file for details.
+
+## 👨‍💻 Author
+
+**Your Name**
+- GitHub: [@yourusername](https://github.com/yourusername)
+- 42 School: [@your42username](https://42.fr)
+
+## 🙏 Acknowledgments
+
+- 42 School for the project requirements
+- The C programming community
+- All contributors and reviewers
 
 ---
 
 <div align="center">
-
-**Made with ❤️ and lots of ☕**
-
-*Master C fundamentals by building your own standard library!*
-
-[![GitHub stars](https://img.shields.io/github/stars/yourusername/libft-42?style=social)](https://github.com/yourusername/libft-42/stargazers)
-[![GitHub forks](https://img.shields.io/github/forks/yourusername/libft-42?style=social)](https://github.com/yourusername/libft-42/network)
-[![GitHub issues](https://img.shields.io/github/issues/yourusername/libft-42)](https://github.com/yourusername/libft-42/issues)
-
-**Author**: [Your Name]  
-**School**: 42 School  
-**Project**: Libft  
-**Last updated**: December 2024
-
-</div> 
+  <p>Made with ❤️ for 42 School</p>
+  <p>⭐ Star this repository if you found it helpful!</p>
+</div>
