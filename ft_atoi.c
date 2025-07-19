@@ -31,11 +31,14 @@ int	ft_atoi(const char *str)
 	}
 	while ((*(str + i) >= '0' && *(str + i) <= '9') && *(str + i))
 	{
+		if (r > 9223372036854775807ULL / 10)
+		{
+			if (s == 1)
+				return (-1);
+			else
+				return (0);
+		}
 		r = r * 10 + str[i] - '0';
-		if (r > 9223372036854775807ULL && s == 1)
-			return (-1);
-		if (r > 9223372036854775808ULL && s == -1)
-			return (0);
 		i++;
 	}
 	return ((int)(s * r));

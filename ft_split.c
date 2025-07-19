@@ -41,15 +41,20 @@ static char	*get_word(const char *s, char c)
 	size_t	len;
 	size_t	i;
 
-	i = -1;
+	if (!s)
+		return (NULL);
 	len = 0;
 	while (s[len] && s[len] != c)
 		len++;
 	word = (char *)malloc(len + 1);
 	if (!word)
-		return (0);
-	while ((++i) < len)
+		return (NULL);
+	i = 0;
+	while (i < len)
+	{
 		word[i] = s[i];
+		i++;
+	}
 	word[len] = '\0';
 	return (word);
 }
@@ -58,11 +63,17 @@ static void	*ft_free(char **arr, int n)
 {
 	int	i;
 
+	if (!arr)
+		return (NULL);
 	i = 0;
 	while (i < n)
-		free(arr[i++]);
+	{
+		if (arr[i])
+			free(arr[i]);
+		i++;
+	}
 	free(arr);
-	return (0);
+	return (NULL);
 }
 
 char	**ft_split(const char *s, char c)
